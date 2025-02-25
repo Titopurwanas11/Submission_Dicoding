@@ -43,7 +43,7 @@ nav{
     display: flex;
     width: 100%;
     margin-inline: auto;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding-block: 0.5rem;
     z-index: 999;
@@ -51,7 +51,7 @@ nav{
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
 
 }
-nav ul{
+.nav-links{
     padding-left: 0;
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ nav ul{
     
 
 }
-nav ul li a{
+nav .nav-links li a{
     text-decoration: none;
     font-size: 1.05rem;
     font-weight: 500;
@@ -69,11 +69,26 @@ nav ul li a{
     border-radius: 99px;
     transition: all .2s ease-in-out;
 }
-nav ul li a:hover{
+nav .nav-links li a:hover{
     background-color: #C38154;
     color: white;
 }
 
+.hamburger-menu{
+    display: none;
+    cursor: pointer;
+}
+.hamburger-menu img{
+    border-radius: 6px;
+    width: 25px;
+    padding: 4px 8px 4px 8px; 
+    border: #C38154 1px solid;
+    /* background-color: aqua; */
+}
+.hamburger-menu img:active{
+    /* background-color: #C38154; */
+    outline: 4px #C38154 solid;
+}
 
 
 
@@ -172,29 +187,38 @@ footer {
         text-align: justify;
     }
 }
-
-@media screen and (max-width:770px){
+@media screen and (max-width:992px){
     nav{
-        order: -1;
-        padding-right: 20px;
+        justify-content: flex-end;
     }
-    nav ul {
-        justify-content: center;
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 38.5px;
+        right: 0px;
+        flex-direction: column;
+        gap: 5rem;
+        padding: 20px 20px 40px 20px;
+        box-shadow: -1px 0 4px 0px rgba(0, 0, 0, 0.2);
+        background-color: #F9E0BB;
     }
-    main aside {
-        align-self: stretch;
+    
+    .nav-links.active{
+        display: flex;
+    }
+
+    nav .nav-links li{
+        margin-top: 20px;
+    }
+    .hamburger-menu{
+        display: block;
+        margin-right: 53px;
     }
 }
+
 /* ukuran mobile */
 @media screen and (max-width:576px){
-    .jumbotron{
-        font-size: 1rem;
-    }
-    nav ul{
-        gap: 1rem 0;
-    }
-    nav ul li a{
-        font-size: 1rem;
-        padding: .3rem 1rem;
+    .nav-links{
+        padding-bottom: 90px;
     }
 }
